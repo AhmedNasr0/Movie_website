@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/logo.svg" type="image/svg+xml">
+
+    <title>TshowV</title>
+    <!-- link google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <!-- custom css link  -->
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- font awesome link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- tailwind css link -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="h-fit">
+    <header class="flex justify-between items-center p-5 relative">
+        <!-- logo -->
+        <div id="logo" class="logo">
+          <a href="index.html">
+            <img
+            src="./images/logo.svg"
+            width="130"
+            height="30"
+            alt="logo"
+            srcset=""
+            />
+          </a> 
+        </div>
+        <!-- search box -->
+        <div
+          id="search-box"
+          class="w-full flex-nowrap flex bg-[#0f1115] not-active z-10 rounded-lg relative h-[35px]"
+        >
+          <div class="search-wrapper w-full relative">
+            <img
+              src="images/search.png"
+              class="search-icon absolute top-[10px] left-[10px]"
+              width="20px"
+              alt=""
+            />
+            <input
+            
+              type="text"
+              class="search-field focus:border-[2px] focus:border-white bg-zinc-700 w-full h-[35px] px-[33px] opacity-80 rounded-lg text-lg outline-none"
+              placeholder="Search any movies..."
+              name="input"
+              id="search-input"
+            />
+            <!-- loading -->
+            <span id="loading" class="hidden"></span>
+          </div>
+          <button
+            id="close-btn"
+            class="w-[40px] bg-zinc-700 hover:bg-zinc-500 opacity-80 rounded-lg ml-3"
+          >
+            <img src="images/close.png" width="35px" alt="" />
+          </button>
+        </div>
+        <!-- search button -->
+        <button
+          id="search-btn"
+          class="search-btn p-2 rounded-md bg-zinc-700 w-[35px] hover:bg-zinc-500 absolute flex right-[45px]"
+        >
+          <img class="" src="images/search.png" width="24" height="24" alt="" />
+        </button>
+        <!-- menu -->
+        <div id="menu" class="menu">
+          <button class="flex">
+            <img id="open-menu" class="" src="./images/menu.png" width="30" height="30" alt="" />
+            <img
+              class="hidden"
+              id="close-menu"
+              src="./images/menu-close.png"
+              width="30"
+              height="30"
+              alt=""
+            />
+          </button>
+        </div>
+      </header>
+      <!-- scroll up btn -->
+    <button id="scroll-up" class="scroll-up hidden fixed bottom-[100px] z-[100] right-[-15px] w-[100px] flex text-black pl-3 bg-red-600 h-[30px] py-1   rounded-full  text-[25px]">
+      <i class="fa-solid fa-chevron-up"></i><span class="text-[15px] ml-2 font-semibold">Top</span>
+    </button>
+    <!-- Side Bar -->
+    <nav class="SideBar absolute shadow-lg shadow-black left-0 h-screen overflow-scroll bg-[#0f1115] w-3/4 not-active z-[10] ">
+        <hr class="brightness-50" />
+        <!-- Contet and links -->
+        <div class="SideBar-Content py-[20px]">
+          <div class="SideBarList">
+            <div class="Genre flex flex-col">
+              <h1 class="text-[30px] mb-4 font-semibold">Genre</h1>
+              <div id="movie-types" class="types flex flex-col">
+                <!-- <a href=""class="font-semibold opacity-50 hover:opacity-100">Action</a> -->
+              </div>
+            </div>
+            <div class="Language flex flex-col ">
+              <h1 class="text-[30px] mb-5 mt-5 font-semibold">Language</h1>
+              <div class="languages-types  flex flex-col">
+                 <!-- <a href="" class="font-semibold opacity-50 hover:opacity-100"
+                  >Arabic</a
+                > -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr class="brightness-50" />
+        <!-- Side Bar Footer -->
+        <div
+          class="SideBarFooter flex gap-2 mt-10 text-xl brightness-50 py-[10px]"
+        >
+          <p>Copyright <span>2023</span></p>
+          <p>Dev By AhmedNasr</p>
+        </div>
+      </nav>
+    <!-- End Of Side Bar -->
+    <!-- -------------------------------- -->
+    <!-- -------------------------------- -->
+    <!-- All Movies -->
+      
+    <section id="results" class="z-[2] hidden px-[20px] pt-[20px] relative w-screen h-fit top-0">
+      
+    </section>
+    <main class="hidden active z-[2]  relative top-0">
+        <!-- filter for small devices -->
+        
+      <div id="filter-btn" class="w-[40px] z-20 absolute right-[10px] top-[21px]">
+          <i class="fa-solid flex justify-center items-center text-[20px] p-2 rounded-lg bg-black mb-[10px] mr-2 fa-sliders"></i>
+      </div>
+      <div id="filter" class="p-[20px] hidden z-30 gap-3 w-[320px]  flex-col  rounded-xl absolute right-[0px] top-[60px] bg-black
+                before:w-[25px] before:h-[25px] before:bg-transparent before:absolute before:border-[13px] before:border-black
+                before:border-b-transparent before:border-l-transparent before:border-r-transparent before:top-[-12px] before:right-[0px]">
+            <div id="sort" class="w-full flex h-[25%] text-[15px]">
+                <label for="" class="font-semibold">Sort By:</label>
+                <button id="sort-dropdown-btn"  type="button" class="ml-5 overflow-hidden mt-1.5  rounded-lg w-[70%] relative  h-[20px] bg-red-700
+                        before:w-[15px] before:h-[15px] before:bg-transparent before:absolute before:border-[8px] before:border-black
+                        before:border-b-transparent before:border-l-transparent before:border-r-transparent before:top-[7px] before:right-[5px]">
+                    <div class="sort-dropdown absolute w-[192px] top-[26px] flex flex-col h-[200px] bg-red-700  rounded-xl" aria-labelledby="dropdownMenuButton">
+                        <span class="item mb-2 hover:bg-black hover:text-white pb-1 border-b-[1px] border-gray-700" valuetext="popularity.desc">Most Popularity</span>
+                        <span class="item mb-2 hover:bg-black hover:text-white pb-1 border-b-[1px] border-gray-700" valuetext="popularity.asc">Less Popularity</span>
+                        <span class="item mb-2 hover:bg-black hover:text-white pb-1 border-b-[1px] border-gray-700" valuetext="vote_average.desc">Top Rating</span>
+                        <span class="item mb-2 hover:bg-black hover:text-white pb-1 border-b-[1px] border-gray-700" valuetext="vote_average.asc">Lowest Rating</span>
+                        <span class="item mb-2 hover:bg-black hover:text-white pb-1 border-b-[1px] border-gray-700" valuetext="primary_release_date.asc">Earlier Release Date </span>
+                        <span class="item mb-2 hover:bg-black hover:text-white rounded-lg" valuetext="primary_release_date.desc">Latest Release Date</span>
+                    </div>
+                </button>
+            </div>
+            <button id="save-btn" class="w-full rounded-xl bg-red-700 text-xl mt-[20px] font-semibold h-[30px]">Save</button>  
+      </div>
+      </div>  
+      <!-- all movies list -->
+        <section id="all-movies" class=" mb-10 p-5 z-[1] relative top-0 overflow-hidden">
+          
+        </section> 
+        <!-- paggination  -->
+    <div class="pagination-btns relative w-full flex justify-center mb-10 bottom-0 mt-3" role="toolbar" aria-label="Toolbar with button groups">
+      <div class="btn-group flex bg-white rounded-2xl h-[25px]  w-fit flex-row" role="group" aria-label="First group">
+        <a id="prevpage" type="button" class="btn w-[50px] py-1 px-[6px]  text-black  rounded-full relative justify-between text-[12px] font-semibold flex hover:cursor-pointer ">
+          <i class="fa-solid absolute left-3 top-[7px] fa-arrow-left"></i>
+          <span class="absolute right-1">Prev</span>
+        </a>
+        <a id="page1"  class="btn  text-black text-[13px] flex justify-center items-center font-semibold py-1 px-4 rounded-full hover:cursor-pointer">1</a>
+        <a id="page2"  type="button" class="btn  text-black flex justify-center items-center  text-[13px] font-semibold py-1 px-4  rounded-full  hover:cursor-pointer">2</a>
+        <a id="pagenum"  type="button" class="btn  text-black flex justify-center items-center  text-[13px] font-semibold py-1 px-4   rounded-full   hover:cursor-pointer">2</a>
+        <a id="page3"  type="button" class="btn  text-black flex justify-center items-center  text-[13px] font-semibold py-1 px-4   rounded-full   hover:cursor-pointer">3</a>
+        <a id="page4" type="button" class="btn  text-black flex justify-center items-center text-[13px] font-semibold py-1 px-4  rounded-full hover:cursor-pointer">4</a>
+        <a id="page5" type="button" class="btn  text-black flex justify-center items-center  text-[13px] font-semibold py-1 px-4  rounded-full hover:cursor-pointer">5</a>
+        <a id="nextpage" type="button" class="btn w-[50px] py-1 flex justify-center items-center px-[6px] text-black  rounded-full relative justify-between text-[12px] hover:cursor-pointer font-semibold flex ">
+          <span class="">Next</span>
+          <i class="fa-solid absolute right-2 top-[7px] fa-arrow-right"></i>
+        </a>
+      </div> 
+    </div>
+    </main>
+   
+    <script src="./js/movie_list.js" type="module"></script>
+</body>
+</html>

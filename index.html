@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="images/logo.svg" type="image/svg+xml">
+    <title>Tvflix</title>
+    <!-- link google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- custom css link  -->
+    <link rel="stylesheet" href="./css/style.css" />
+    <!-- font awesome link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- tailwind css link -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="p-2.5">
+    <header class="flex justify-between items-center p-5 relative">
+      <!-- logo -->
+      <a href="index.html">
+        <div id="logo" class="logo">
+        <img
+          src="./images/logo.svg"
+          width="130"
+          height="30"
+          alt="logo"
+          srcset=""
+        />
+      </div>
+      </a>
+      
+      <!-- search box -->
+      <div
+          id="search-box"
+          class="w-full flex-nowrap flex bg-[#0f1115] not-active z-10 rounded-lg relative h-[35px]"
+        >
+          <div class="search-wrapper w-full relative">
+            <img
+              src="images/search.png"
+              class="search-icon absolute top-[10px] left-[10px]"
+              width="20px"
+              alt=""
+            />
+            <input
+              type="text"
+              class="search-field focus:border-[2px] focus:border-white bg-zinc-700 w-full h-[35px] px-[33px] opacity-80 rounded-lg text-lg outline-none"
+              placeholder="Search any movies..."
+              name="input"
+              id="search-input"
+            />
+            <!-- loading -->
+            <span id="loading" class="hidden"></span>
+          </div>
+          <button
+            id="close-btn"
+            class="w-[40px] bg-zinc-700 hover:bg-zinc-500 opacity-80 rounded-lg ml-3"
+          >
+            <img src="images/close.png" width="35px" alt="" />
+          </button>
+        </div>
+      <!-- search button -->
+      <button
+        id="search-btn"
+        class="search-btn p-2 rounded-md bg-zinc-700 w-[35px] hover:bg-zinc-500 absolute flex right-[45px]"
+      >
+        <img class="" src="images/search.png" width="24" height="24" alt="" />
+      </button>
+      <!-- menu -->
+      <div id="menu" class="menu">
+        <button class="flex">
+          <img id="open-menu" class="" src="./images/menu.png" width="30" height="30" alt="" />
+          <img
+            class="hidden"
+            id="close-menu"
+            src="./images/menu-close.png"
+            width="30"
+            height="30"
+            alt=""
+          />
+        </button>
+      </div>
+    </header>
+    <!-- scroll up btn -->
+    <button id="scroll-up" class="scroll-up hidden fixed bottom-[100px] z-[100] right-[-15px] w-[100px] flex text-black pl-3 bg-red-600 h-[30px] py-1   rounded-full  text-[25px]">
+      <i class="fa-solid fa-chevron-up"></i><span class="text-[15px] ml-2 font-semibold">Top</span>
+    </button>
+    <!-- Side Bar -->
+    <nav class="SideBar absolute shadow-lg shadow-black left-0 h-screen overflow-scroll not-active bg-[#0f1115] w-3/4  z-[30] ">
+      <hr class="brightness-50" />
+      <!-- Contet and links -->
+      <div class="SideBar-Content py-[20px]">
+        <div class="SideBarList">
+          <div class="Genre flex flex-col">
+            <h1 class="text-[30px] mb-4 font-semibold">Genre</h1>
+            <div id="movie-types" class="types flex flex-col">
+              <!-- <a href=""class="font-semibold opacity-50 hover:opacity-100">Action</a> -->
+            </div>
+          </div>
+          <hr class="brightness-50 mt-10 w-[90%]" />
+          <div class="Language flex flex-col ">
+            <h1 class="text-[30px] mb-5 mt-5 font-semibold">Language</h1>
+            <div class="languages-types  flex flex-col">
+               <!-- <a href="" class="font-semibold opacity-50 hover:opacity-100"
+                >Arabic</a
+              > -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr class="brightness-50" />
+      <!-- Side Bar Footer -->
+      <div
+        class="SideBarFooter flex gap-2 mt-10 text-xl brightness-50 pb-[70px] pt-[10px]"
+      >
+        <p>Copyright <span>2023</span></p>
+        <p>Dev By AhmedNasr</p>
+      </div>
+    </nav>
+    <!-- End Of Side Bar -->
+    <!-- -------------------------------- -->
+    <!-- Banner  -->
+    <main id="main" class="active hidden">
+      <article class=" z-[-1]  p-5 overflow-y-scroll">
+      <section
+        id="Banner"
+        class="Banner relative  overflow-hidden h-[620px] rounded-lg"
+      >
+        <!-- Banner Slider -->
+        <div id="banner-slider" class="banner-slider  relative w-full h-full">
+                <!-- banner-slider-items created by dom  -->
+        </div>
+        <div class="slider-control absolute  bottom-[20px] w-screen">
+          <div
+            id="slider-control-content"
+            class="content w-[96%] overflow-y-scroll flex gap-5"
+          >
+            <!-- slider-control-items created by dom  -->
+          </div>
+        </div>
+      </section>
+    </article>
+    <!-- End Of Banner -->
+    <!-- -------------------------------- -->
+    <!-- Movies section -->
+      </section>
+    
+    </main>
+    <section id="results" class="z-[10] hidden px-[20px] pt-[5px] relative w-screen h-screen top-0">
+        
+    </section>
+
+
+    <script src="./js/index.js" type="module"></script>
+  </body>
+</html>
